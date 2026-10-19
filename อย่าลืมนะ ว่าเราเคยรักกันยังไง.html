@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>อย่าลืมนะ ว่าเราเคยรักกันยังไง</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600&family=Sarabun:wght@300;400;500&display=swap">
+<style>
+:root{--bg1:#fbf3ea;--bg2:#f3e4ea;--bg3:#e9e1f2;--ink:#4a3b47;--soft:#7d6a79;--card:rgba(255,252,248,.82);--line:#e6d3dc;--accent:#c98ba3;--accent2:#a894c9;--star:#e7c27d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a2230;--bg2:#32283a;--bg3:#262238;--ink:#f1e6ec;--soft:#c3b0bf;--card:rgba(52,42,60,.85);--line:#54445c;--accent:#e0a3ba;--accent2:#b9a6e0;--star:#f0d28f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg1:#2a2230;--bg2:#32283a;--bg3:#262238;--ink:#f1e6ec;--soft:#c3b0bf;--card:rgba(52,42,60,.85);--line:#54445c;--accent:#e0a3ba;--accent2:#b9a6e0;--star:#f0d28f;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;font-family:'Sarabun',system-ui,sans-serif;font-size:19px;line-height:1.85;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg1)}
+h1,h2,h3,.serif{font-family:'Noto Serif Thai',serif;font-weight:400;line-height:1.55}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+.s{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--star);opacity:.5;animation:tw 4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.08;transform:scale(.6)}}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;gap:2px;overflow-x:auto;padding:6px 8px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:0 0 auto;border:0;background:none;color:var(--soft);font:inherit;font-size:15px;padding:10px 14px;border-radius:99px;min-height:44px;cursor:pointer}
+nav button.on{background:var(--accent);color:#fff}
+#bar{height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .6s ease}
+main{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:28px 22px 60px}
+.view{display:none}.view.on{display:block;animation:in .8s ease both}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero{text-align:center;padding-top:6vh}
+.sub{letter-spacing:.2em;font-size:14px;color:var(--accent2);text-transform:uppercase;margin:0 0 10px}
+h1{font-size:30px;margin:6px 0 22px}
+.moon{font-size:46px;filter:saturate(.7);animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-8px)}}
+.letter{background:var(--card);border:1px solid var(--line);border-radius:6px 18px 18px 18px;padding:26px 24px;text-align:left;box-shadow:0 10px 30px rgba(160,120,150,.15);margin:26px 0}
+.letter p{margin:0 0 1.1em;opacity:0;animation:rise 1.2s ease forwards}
+.letter p:last-child{margin:0}
+.letter p:nth-child(1){animation-delay:.6s}.letter p:nth-child(2){animation-delay:2.2s}.letter p:nth-child(3){animation-delay:4s}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:500;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:14px 28px;min-height:48px;border-radius:99px;box-shadow:0 6px 18px rgba(168,148,201,.35);transition:transform .2s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+h2{font-size:25px;margin:0 0 6px;text-align:center}
+.lead{text-align:center;color:var(--soft);margin:0 0 24px;font-size:17px}
+.topic{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-bottom:16px}
+.topic .no{color:var(--accent);font-size:14px;letter-spacing:.1em}
+.topic h3{font-size:20px;margin:2px 0 10px}
+.topic p{margin:0 0 1em}
+.more{display:none}.topic.open .more{display:block;animation:in .7s ease both}
+.rd{border:0;background:none;color:var(--accent);font:inherit;font-weight:500;padding:8px 0;min-height:44px;cursor:pointer}
+.big{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px 24px;min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Noto Serif Thai',serif;font-size:22px;line-height:1.7;margin:10px 0 6px;transition:opacity .35s}
+.fade{opacity:0}
+.list{margin:30px 0 0;padding:0;list-style:none}
+.list li{padding:12px 0;border-top:1px solid var(--line);color:var(--soft);font-size:17px}
+.cnt{text-align:center;color:var(--soft);font-size:15px}
+.note{text-align:center;font-style:italic;color:var(--soft);font-size:17px;margin-top:16px;min-height:3.4em}
+.final{text-align:center}
+.final .letter p{animation:none;opacity:1}
+.quote{font-family:'Noto Serif Thai',serif;font-size:23px;line-height:1.75;margin:30px 0 8px}
+.quote em{display:block;font-style:normal;font-size:19px;color:var(--soft);margin-top:18px}
+footer{text-align:center;color:var(--soft);font-size:14px;margin-top:40px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important}}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<header>
+<nav id="nav"></nav>
+<div id="bar"></div>
+</header>
+<main>
+
+<section class="view hero on" id="v0">
+<div class="moon">🌙</div>
+<p class="sub">A little reminder for us</p>
+<h1>อย่าลืมนะ<br>ว่าเราเคยรักกันยังไง</h1>
+<div class="letter">
+<p>โมลองอ่านตรงนี้ช้า ๆ นะ</p>
+<p>ไม่ได้อยากให้โมรู้สึกผิด ไม่ได้อยากเอาชนะอะไร และไม่ได้อยากให้เราต้องรีบกลับมาเป็นเหมือนเดิมในทันที</p>
+<p>แค่อยากให้เราลองหยุดพักจากเรื่องที่ทำให้เหนื่อย แล้วกลับมามองความรักของเราด้วยหัวใจที่เย็นลงอีกนิด</p>
+</div>
+<button class="btn" onclick="go(1)">ค่อย ๆ อ่านไปด้วยกัน</button>
+</section>
+
+<section class="view" id="v1">
+<h2>เรากำลังลืมอะไรกันอยู่หรือเปล่า</h2>
+<p class="lead">ไม่ต้องรีบ เปิดอ่านทีละเรื่องก็ได้</p>
+<div id="topics"></div>
+<div class="row"><button class="btn ghost" onclick="go(0)">กลับ</button><button class="btn" onclick="go(2)">ไปหน้าเตือนสติ</button></div>
+</section>
+
+<section class="view" id="v2">
+<h2>อ่านก่อนที่เราจะพูดอะไรออกไป<br>ตอนกำลังโกรธ</h2>
+<p class="lead">กลับมาเปิดอ่านได้ทุกครั้งที่ต้องการ</p>
+<div class="big" id="rem">กดปุ่มด้านล่าง แล้วหายใจลึก ๆ สักครั้ง</div>
+<div class="row"><button class="btn" onclick="rand()">สุ่มอ่านข้อความเตือนใจ</button></div>
+<ul class="list" id="all"></ul>
+<div class="row"><button class="btn ghost" onclick="go(1)">กลับ</button><button class="btn" onclick="go(3)">ทบทวนตัวเอง</button></div>
+</section>
+
+<section class="view" id="v3">
+<h2>ลองถามตัวเองอย่างจริงใจ</h2>
+<p class="lead">ไม่มีคะแนน ไม่มีถูกผิด และไม่ต้องตอบก็ได้ แค่ลองคิดดู</p>
+<p class="cnt" id="qc"></p>
+<div class="big" id="q"></div>
+<p class="note" id="qn"></p>
+<div class="row"><button class="btn ghost" onclick="qm(-1)" id="qb">ย้อนกลับ</button><button class="btn ghost" onclick="qm(1)">ข้ามข้อนี้</button><button class="btn" onclick="qm(1)" id="qx">คำถามต่อไป</button></div>
+</section>
+
+<section class="view final" id="v4">
+<h2>ถ้ายังอยากมีกันอยู่</h2>
+<div class="letter">
+<p>เราอาจกลับไปเป็นเหมือนวันแรกทุกอย่างไม่ได้แล้ว เพราะระหว่างทางเราได้เรียนรู้ทั้งความสุข ความเสียใจ และสิ่งที่เราต้องปรับปรุง</p>
+<p>แต่บางทีสิ่งที่สวยงามกว่าเดิม อาจไม่ใช่การกลับไปเป็นคนสองคนที่ไม่เคยทะเลาะกันเลย แต่อาจเป็นการที่เราเริ่มรู้จักกันมากขึ้น รู้ว่าอะไรทำให้อีกฝ่ายเสียใจ รู้ว่าเมื่อไหร่ควรหยุดฟัง และรู้ว่าคำว่าขอโทษต้องตามมาด้วยการเปลี่ยนแปลง</p>
+<p>เราไม่จำเป็นต้องแก้ทุกอย่างให้เสร็จภายในวันนี้ และไม่จำเป็นต้องฝืนความรู้สึกของตัวเอง</p>
+<p>แค่ถ้าเรายังอยากเดินไปด้วยกัน ก็ลองเริ่มจากสิ่งเล็ก ๆ ที่เราทำให้ดีขึ้นได้ตั้งแต่วันนี้</p>
+</div>
+<div class="quote">อย่าลืมนะ ว่าเราเคยรักกันยังไง<em>และอย่าลืมด้วยว่า ความรักที่เรามีในวันนี้ ก็สมควรได้รับการดูแลให้ดีกว่าเมื่อวาน</em></div>
+<div class="row"><button class="btn ghost" onclick="go(1)">กลับไปอ่านจดหมายอีกครั้ง</button><button class="btn" onclick="go(0)">กลับสู่หน้าแรก</button></div>
+<footer>หน้านี้ไม่เก็บข้อมูลใด ๆ ไว้เลย ✦</footer>
+</section>
+
+</main>
+<script>
+var names=['จดหมาย','เรื่องที่ควรจำ','เตือนสติ','ทบทวนตัวเอง','ปิดท้าย'];
+var T=[
+['เราไม่จำเป็นต้องชนะกันทุกเรื่อง','บางครั้งเวลาทะเลาะกัน เรามัวแต่พยายามอธิบายว่าตัวเองถูก จนลืมฟังว่าคนที่เรารักกำลังรู้สึกอย่างไร','ความสัมพันธ์ไม่ใช่การแข่งขัน ไม่มีใครได้ถ้วยรางวัลจากการชนะคนที่ตัวเองรัก และการยอมรับว่าตัวเองผิดไม่ได้ทำให้เรามีคุณค่าน้อยลง ตรงกันข้าม มันแสดงว่าเราให้ค่ากับอีกฝ่ายมากกว่าศักดิ์ศรีของตัวเอง'],
+['คำพูดบางคำอาจอยู่ในใจนานกว่าที่เราคิด','ตอนโกรธ คำพูดมักออกมาเร็วและแรงกว่าที่ใจเราจริง ๆ คิด','ความโกรธอาจอยู่แค่ชั่วครู่ แต่ความรู้สึกจากคำพูดอาจอยู่กับอีกฝ่ายนานกว่านั้นมาก ถ้าเรารู้ตัวว่ากำลังจะพูดอะไรที่แรงเกินไป การหยุดหายใจสักสามครั้งก่อนพูด อาจช่วยให้เราไม่ต้องเสียใจทีหลัง'],
+['อย่าให้ความน้อยใจกลายเป็นกำแพง','ความน้อยใจเป็นความรู้สึกจริง และควรได้รับการรับฟัง','แต่ถ้าเราเก็บไว้เงียบ ๆ ประชด หรือคาดหวังให้อีกฝ่ายเดาใจเอง มันจะค่อย ๆ กลายเป็นกำแพงที่สูงขึ้นทุกวัน ลองบอกกันตรง ๆ อย่างอ่อนโยนว่า “เรารู้สึกแบบนี้ เพราะเรื่องนี้” และอย่าใช้ความเงียบเป็นเครื่องลงโทษกัน เพราะความเงียบมักทำให้ทั้งสองคนเหงาพอ ๆ กัน'],
+['การรักกันไม่ได้หมายความว่าจะเข้าใจกันทุกครั้ง','คนสองคนรักกันได้ และยังคิดต่างกันได้','สิ่งสำคัญไม่ใช่การไม่มีปัญหาเลย แต่คือการหาวิธีคุยและแก้ปัญหา โดยไม่ทำร้ายกันซ้ำ ๆ ถ้าวันนี้ยังไม่เข้าใจกัน ก็ไม่ได้แปลว่าเราไม่ได้รักกัน อาจแค่ต้องใช้เวลา และต้องฟังกันให้มากกว่าเดิมอีกนิด']
+];
+var R=['เราไม่จำเป็นต้องชนะกันทุกเรื่องเพื่อให้ความสัมพันธ์ไปต่อได้','ก่อนจะถามว่าทำไมอีกฝ่ายไม่เข้าใจเรา ลองถามตัวเองว่าเราได้ฟังเขามากพอหรือยัง','ถ้าอารมณ์ยังแรง เราพักก่อนได้ แต่ควรบอกกันว่าจะกลับมาคุยกันเมื่อไหร่','คำขอโทษที่จริงใจไม่ได้จบลงตอนพูด แต่เริ่มต้นตรงสิ่งที่เราทำหลังจากนั้น','อย่าใช้ความผิดพลาดครั้งหนึ่งมาตัดสินคุณค่าของคนคนหนึ่ง แต่ก็อย่ามองข้ามความผิดพลาดที่เกิดซ้ำโดยไม่เปลี่ยนแปลง','เราไม่สามารถควบคุมความรู้สึกของอีกฝ่ายได้ทั้งหมด แต่เรารับผิดชอบคำพูดและการกระทำของตัวเองได้'];
+var Q=[
+['เวลาทะเลาะกัน เรากำลังพยายามเข้าใจกัน หรือกำลังพยายามเอาชนะกัน?','ไม่ต้องรีบตอบ แค่สังเกตตัวเองในครั้งหน้าก็พอ'],
+['มีเรื่องไหนที่เราอยากให้อีกฝ่ายปรับ แต่ตัวเราเองก็ต้องปรับเหมือนกัน?','การเปลี่ยนแปลงที่ดีที่สุด มักเริ่มจากฝั่งที่เราควบคุมได้ คือตัวเรา'],
+['เวลาที่อีกฝ่ายเสียใจ เรารับฟังเขาจริง ๆ หรือรีบอธิบายตัวเองก่อน?','บางครั้ง การนั่งฟังเงียบ ๆ ก็เป็นคำตอบที่อบอุ่นที่สุด'],
+['ถ้าเรื่องเดิมเกิดขึ้นอีก เราอยากลองรับมือด้วยวิธีไหนที่ดีกว่าเดิม?','ไม่ต้องสมบูรณ์แบบ แค่ต่างจากเดิมสักนิดก็นับว่าเริ่มแล้ว'],
+['วันนี้เราทำอะไรได้บ้างเพื่อให้อีกฝ่ายรู้สึกว่าเขาได้รับการรับฟัง?','สิ่งเล็ก ๆ อย่างข้อความสั้น ๆ หรือการถามว่า “วันนี้เป็นยังไงบ้าง” ก็มีความหมาย'],
+['เราอยากให้ความรักของเราเป็นแบบไหน เมื่อผ่านไปอีกหลายเดือน?','ภาพนั้นคือทิศทางเล็ก ๆ ที่เราเลือกเดินไปด้วยกันได้']];
+var cur=0,qi=0,last=-1,bag=[];
+var $=function(i){return document.getElementById(i)};
+// stars
+for(var i=0;i<28;i++){var s=document.createElement('i');s.className='s';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*4)+'s';$('stars').appendChild(s)}
+// nav
+names.forEach(function(n,i){var b=document.createElement('button');b.textContent=n;b.onclick=function(){go(i)};$('nav').appendChild(b)});
+// topics
+T.forEach(function(t,i){var d=document.createElement('div');d.className='topic';
+d.innerHTML='<div class="no">เรื่องที่ '+['หนึ่ง','สอง','สาม','สี่'][i]+'</div><h3>'+t[0]+'</h3><p>'+t[1]+'</p><div class="more"><p>'+t[2]+'</p></div><button class="rd">อ่านต่อ</button>';
+var bt=d.querySelector('.rd');bt.onclick=function(){var o=d.classList.toggle('open');bt.textContent=o?'ซ่อน':'อ่านต่อ'};
+$('topics').appendChild(d)});
+// reminders
+R.forEach(function(r){var l=document.createElement('li');l.textContent=r;$('all').appendChild(l)});
+function swap(el,txt){el.classList.add('fade');setTimeout(function(){el.textContent=txt;el.classList.remove('fade')},350)}
+function rand(){if(!bag.length){bag=R.map(function(_,i){return i}).filter(function(i){return i!==last});}
+var k=Math.floor(Math.random()*bag.length);last=bag.splice(k,1)[0];swap($('rem'),R[last])}
+// questions
+function showQ(){$('qc').textContent='ข้อที่ '+(qi+1)+' จาก '+Q.length;swap($('q'),Q[qi][0]);swap($('qn'),Q[qi][1]);
+$('qb').style.visibility=qi?'visible':'hidden';$('qx').textContent=qi==Q.length-1?'ไปหน้าสุดท้าย':'คำถามต่อไป'}
+function qm(d){var n=qi+d;if(n>=Q.length){go(4);return}if(n<0)return;qi=n;showQ()}
+// views
+function go(i){cur=i;document.querySelectorAll('.view').forEach(function(v,k){v.classList.toggle('on',k==i)});
+document.querySelectorAll('nav button').forEach(function(b,k){b.classList.toggle('on',k==i)});
+$('bar').style.width=((i+1)/5*100)+'%';window.scrollTo({top:0,behavior:'smooth'});
+if(i==3){qi=0;showQ()}var a=document.querySelectorAll('nav button')[i];if(a&&a.scrollIntoView)a.scrollIntoView({inline:'center',block:'nearest'})}
+go(0);
+</script>
+</body>
+</html>
